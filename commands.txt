@@ -1,0 +1,15 @@
+cordova create cam02 com.example.cam02 cam02
+git clone https://github.com/ThomasLech/cordova-camera-preview-example.git
+cd cam02/
+rm -rf www
+mv ../cordova-camera-preview-example/www/ .
+cordova plugin add cordova-plugin-camera-preview
+# need to add to index.html: "font-src 'self' data:;" to Security Policy
+vi www/index.html 
+git init; git add *; git commit -m "first"
+history | grep git
+git remote add origin https://github.com/drfuka/cam02.git
+git push --set-upstream origin master
+cordova platform add ios
+cordova build ios
+cordova serve
